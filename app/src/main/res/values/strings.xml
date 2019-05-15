@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Dentaku</string>
+    <string name="tap_here">0</string>
+    <string name="tap_here2">1</string>
+    <string name="tap_here3">2</string>
+    <string name="tap_here4">3</string>
+    <string name="tap_here5">4</string>
+    <string name="tap_here6">5</string>
+    <string name="tap_here10">1</string>
 </resources>
