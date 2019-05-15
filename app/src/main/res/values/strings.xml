@@ -8,7 +8,6 @@
     <string name="tap_here6">5</string>
     <string name="tap_here10">1</string>
     <string name="number">7</string>
-    <string name="number2">8</string>
     <string name="number3">9</string>
     <string name="number4">/</string>
     <string name="number5">4</string>
@@ -23,4 +22,5 @@
     <string name="number14">C</string>
     <string name="number15">=</string>
     <string name="number16">+</string>
+    <string name="number2">8</string>
 </resources>
