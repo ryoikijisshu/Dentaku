@@ -94,9 +94,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/num0" android:height="85sp"/>
             <Button
-                    android:text="."
+                    android:text="C"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/point" android:height="85sp"/>
+                    android:layout_height="wrap_content" android:id="@+id/clear" android:height="85sp"/>
             <Button
                     android:text="="
                     android:layout_width="wrap_content"
