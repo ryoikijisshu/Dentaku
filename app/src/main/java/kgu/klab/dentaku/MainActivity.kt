@@ -7,6 +7,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var result_text: String = ""
+    var num_text: Double = 0.0
+    var num2_text: Double = 0.0
+    var Identifier:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,33 +92,54 @@ class MainActivity : AppCompatActivity() {
         }
 
         func_eq.setOnClickListener {
-
-            result_text += "="
-            result.text =result_text
+            num2_text = result_text.toDouble()
+            if( Identifier == 1){
+                num2_text = num_text + num2_text
+            }
+            if( Identifier == 2){
+                num2_text = num_text - num2_text
+            }
+            if( Identifier == 3){
+                num2_text = num_text * num2_text
+            }
+            if( Identifier == 4){
+                num2_text = num_text / num2_text
+            }
+            result_text = num2_text.toString()
+            result.text = result_text
         }
 
         func_pls.setOnClickListener {
-
+            num_text = result_text.toDouble()
             result_text += "+"
             result.text =result_text
+            result_text = ""
+            Identifier = 1
+
         }
 
         func_min.setOnClickListener {
-
+            num_text = result_text.toDouble()
             result_text += "-"
             result.text =result_text
+            result_text = ""
+            Identifier = 2
         }
 
         func_mul.setOnClickListener {
-
+            num_text = result_text.toDouble()
             result_text += "*"
             result.text =result_text
+            result_text = ""
+            Identifier = 3
         }
 
         func_div.setOnClickListener {
-
+            num_text = result_text.toDouble()
             result_text += "/"
             result.text =result_text
+            result_text = ""
+            Identifier = 4
         }
     }
 }
