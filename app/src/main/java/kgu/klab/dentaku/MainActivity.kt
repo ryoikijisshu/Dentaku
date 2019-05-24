@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
-abstract class MainActivity : AppCompatActivity() {
+ class MainActivity : AppCompatActivity() {
 
     var n : String = ""
 
