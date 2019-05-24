@@ -7,6 +7,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var result_text: String = ""
+    var num1_text: Double = 0.0
+    var num2_text: Double = 0.0
+    var x: Int = 0
+    var result_num:Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,32 +94,58 @@ class MainActivity : AppCompatActivity() {
 
         func_eq.setOnClickListener {
 
-            result_text += "="
-            result.text =result_text
+            num2_text = result_text.toDouble()
+
+            if (x==1){
+                result_num=num1_text+num2_text
+            }
+
+            if (x==2){
+                result_num=num1_text-num2_text
+            }
+
+            if (x==3){
+                result_num=num1_text*num2_text
+            }
+
+            if (x==4){
+                result_num=num1_text/num2_text
+            }
+
+            result_text = result_num.toString()
+            result.text = result_text
         }
 
         func_pls.setOnClickListener {
 
-            result_text += "+"
-            result.text =result_text
+            num1_text = result_text.toDouble()
+            result_text = ""
+            result.text ="+"
+            x=1
         }
 
         func_min.setOnClickListener {
 
-            result_text += "-"
-            result.text =result_text
+            num1_text = result_text.toDouble()
+            result_text = ""
+            result.text ="-"
+            x=2
         }
 
         func_mul.setOnClickListener {
 
-            result_text += "*"
-            result.text =result_text
+            num1_text = result_text.toDouble()
+            result_text = ""
+            result.text ="*"
+            x=3
         }
 
         func_div.setOnClickListener {
 
-            result_text += "/"
-            result.text =result_text
+            num1_text = result_text.toDouble()
+            result_text = ""
+            result.text ="/"
+            x=4
         }
     }
 }
