@@ -149,5 +149,7 @@
             app:layout_constraintBottom_toTopOf="@+id/num7"
             android:layout_marginTop="117dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            android:gravity="center|right"
+            android:textSelectHandleLeft="@android:drawable/editbox_dropdown_light_frame"/>
 </android.support.constraint.ConstraintLayout>
