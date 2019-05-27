@@ -1,11 +1,14 @@
 package kgu.klab.dentaku
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var numA: Int=0
+    var numB: Int=0
+    var mathSymbol: String=""
     var result_text: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +86,8 @@ class MainActivity : AppCompatActivity() {
 
         func_c.setOnClickListener {
 
+            numA=0
+            numB=0
             result_text = ""
             result.text =result_text
 
@@ -90,32 +95,81 @@ class MainActivity : AppCompatActivity() {
 
         func_eq.setOnClickListener {
 
-            result_text += "="
+            inputNum(result_text)
+
+            when(mathSymbol){
+                "+" -> {
+                    result_text=(numA+numB).toString()
+                    numA=numA+numB
+                    numB=0
+                    System.out.println()
+                }
+
+                "-" -> {
+                    result_text=(numA-numB).toString()
+                    numA=numA-numB
+                    numB=0
+                }
+
+                "*" -> {
+                    result_text=(numA*numB).toString()
+                    numA=numA*numB
+                    numB=0
+                }
+
+                "/" -> {
+                    result_text=(numA/numB).toString()
+                    numA=numA/numB
+                    numB=0
+                }
+
+                else ->{
+                    result_text="err"
+                }
+            }
+
             result.text =result_text
         }
 
         func_pls.setOnClickListener {
 
-            result_text += "+"
-            result.text =result_text
+            inputNum(result_text)
+            mathSymbol="+"
+            result.text ="+"
+            result_text = ""
         }
 
         func_min.setOnClickListener {
 
-            result_text += "-"
-            result.text =result_text
+            inputNum(result_text)
+            mathSymbol="-"
+            result.text ="-"
+            result_text = ""
         }
 
         func_mul.setOnClickListener {
 
-            result_text += "*"
-            result.text =result_text
+            inputNum(result_text)
+            mathSymbol="*"
+            result.text ="*"
+            result_text = ""
         }
 
         func_div.setOnClickListener {
 
-            result_text += "/"
-            result.text =result_text
+            inputNum(result_text)
+            mathSymbol="/"
+            result.text ="/"
+            result_text = ""
+        }
+
+    }
+
+    fun inputNum(text: String){
+        if(numA==0){
+            numA=text.toInt()
+        }else {
+            numB = text.toInt()
         }
     }
 }
