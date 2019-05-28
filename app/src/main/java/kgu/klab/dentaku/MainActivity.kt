@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     var num2_text: Double = 0.0
     var x: Int = 0
     var result_num:Double = 0.0
+    var y:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +19,28 @@ class MainActivity : AppCompatActivity() {
 
         num0.setOnClickListener {
 
-            result_text += "0"
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text!="0") {
+                result_text += "0"
+            }
+
             result.text =result_text
         }
 
         num1.setOnClickListener {
+
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
 
             result_text += "1"
             result.text =result_text
@@ -31,12 +49,30 @@ class MainActivity : AppCompatActivity() {
 
         num2.setOnClickListener {
 
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
+
             result_text += "2"
             result.text =result_text
 
         }
 
         num3.setOnClickListener {
+
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
 
             result_text += "3"
             result.text =result_text
@@ -45,12 +81,30 @@ class MainActivity : AppCompatActivity() {
 
         num4.setOnClickListener {
 
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
+
             result_text += "4"
             result.text =result_text
 
         }
 
         num5.setOnClickListener {
+
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
 
             result_text += "5"
             result.text =result_text
@@ -59,12 +113,30 @@ class MainActivity : AppCompatActivity() {
 
         num6.setOnClickListener {
 
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
+
             result_text += "6"
             result.text =result_text
 
         }
 
         num7.setOnClickListener {
+
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
 
             result_text += "7"
             result.text =result_text
@@ -73,12 +145,30 @@ class MainActivity : AppCompatActivity() {
 
         num8.setOnClickListener {
 
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
+
             result_text += "8"
             result.text =result_text
 
         }
 
         num9.setOnClickListener {
+
+            if(y==1){
+                result_text = ""
+                y=0
+            }
+
+            if(result_text=="0"){
+                result_text=""
+            }
 
             result_text += "9"
             result.text =result_text
@@ -111,6 +201,8 @@ class MainActivity : AppCompatActivity() {
             if (x==4){
                 result_num=num1_text/num2_text
             }
+
+            y=1
 
             result_text = result_num.toString()
             result.text = result_text
