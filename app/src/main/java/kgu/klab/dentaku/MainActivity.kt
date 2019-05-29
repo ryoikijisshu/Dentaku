@@ -208,25 +208,28 @@ class MainActivity : AppCompatActivity() {
 
         func_eq.setOnClickListener {
 
-            if (func == 1) {
+            if(func == 1) {
 
                 result_text = (number1.toInt() + number2.toInt()).toString()
                 result.text = result_text
                 number1 = result_text
 
-            } else if (func == 2) {
+            }
+            else if (func == 2) {
 
                 result_text = (number1.toInt() - number2.toInt()).toString()
                 result.text = result_text
                 number1 = result_text
 
-            } else if (func == 3) {
+            }
+            else if (func == 3) {
 
                 result_text = (number1.toInt() * number2.toInt()).toString()
                 result.text = result_text
                 number1 = result_text
 
-            } else if (func == 4) {
+            }
+            else if (func == 4) {
 
                 result_text = (number1.toInt() / number2.toInt()).toString()
                 result.text = result_text
