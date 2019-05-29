@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var value : Int = 0 //値を格納
+        var value : Double = 0.0 //値を格納
         var clear : Boolean = false //true時に数字ボタンが押された時に計算結果をクリア
         var calc : Boolean = false //true時にのみ計算ボタンが押された時に計算処理を行う
         var operator : String? = null //演算子を格納
@@ -147,17 +147,17 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        fun calculation(op : String?) :Int {
+        fun calculation(op : String?) :Double {
             return if (op == "+") {
-                value + result.text.toString().toInt()
+                value + result.text.toString().toDouble()
             } else if (op == "-") {
-                value - result.text.toString().toInt()
+                value - result.text.toString().toDouble()
             } else if (op == "*") {
-                value * result.text.toString().toInt()
+                value * result.text.toString().toDouble()
             } else if (op == "/") {
-                value / result.text.toString().toInt()
+                value / result.text.toString().toDouble()
             } else {
-                result.text.toString().toInt()
+                result.text.toString().toDouble()
             }
         }
 
@@ -174,7 +174,7 @@ class MainActivity : AppCompatActivity() {
 
         func_c.setOnClickListener {
             result.text ="0"
-            value = 0
+            value = 0.0
             operator = null
             clear = false
             calc = false
