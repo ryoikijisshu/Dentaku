@@ -12,15 +12,20 @@ class MainActivity : AppCompatActivity() {
     var Identifier:Int = 0
     var signal:Int = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
                         num0.setOnClickListener {
+                            if( result_text == "0")
+                            {
 
-                            result_text += "0"
+                            }
+                            else{
+                                result_text += "0"
+                            }
+
                             if( signal == 1) {
                                 result_text = ""
                                 signal = 0
