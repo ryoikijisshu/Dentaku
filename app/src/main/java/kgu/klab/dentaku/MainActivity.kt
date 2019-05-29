@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var num: Int = 0
+        var num: Double = 0.0
         var clear: Boolean = false
         var calc: Boolean = false
         var operator: String? = null
@@ -149,15 +149,15 @@ class MainActivity : AppCompatActivity() {
 
         func_c.setOnClickListener {
 
-            result.text = "0"
-            num = 0
+            result.text = ""
+            num = 0.0
             operator = null
             clear = false
             calc = false
 
         }
 
-        fun calculation(op: String?): Int {
+        fun calculation(op: String?): Double {
             return if (op == "+") {
                 num + result.text.toString().toInt()
             } else if (op == "-") {
@@ -167,7 +167,7 @@ class MainActivity : AppCompatActivity() {
             } else if (op == "/") {
                 num / result.text.toString().toInt()
             } else {
-                result.text.toString().toInt()
+                result.text.toString().toDouble()
             }
         }
 
@@ -192,26 +192,27 @@ class MainActivity : AppCompatActivity() {
                 result.text = num.toString()
                 operator = null
             }
+        }
 
-            func_pls.setOnClickListener {
+        func_pls.setOnClickListener {
 
-                calcBottunAction("+")
-            }
+            calcBottunAction("+")
+        }
 
-            func_min.setOnClickListener {
+        func_min.setOnClickListener {
 
-                calcBottunAction("-")
-            }
+            calcBottunAction("-")
+        }
 
-            func_mul.setOnClickListener {
+        func_mul.setOnClickListener {
 
-                calcBottunAction("*")
-            }
+            calcBottunAction("*")
+        }
 
-            func_div.setOnClickListener {
+        func_div.setOnClickListener {
 
-                calcBottunAction("/")
-            }
+            calcBottunAction("/")
         }
     }
 }
+
