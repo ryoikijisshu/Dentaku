@@ -13,16 +13,21 @@ class MainActivity : AppCompatActivity() {
         var a = 0.0
         var b = 0.0
         var c = 0
-        var result_text: String = ""
+        var result_text: String = "0"
 
         num0.setOnClickListener {
-
-            result_text += "0"
+            if (result_text == "0"){
+                result_text = "0"
+            }
+            else{
+                result_text += "0"
+            }
             result.text = result_text
+
         }
 
         num1.setOnClickListener {
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "1"
             }
             else{
@@ -34,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         num2.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "2"
             }
             else{
@@ -46,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         num3.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "3"
             }
             else{
@@ -58,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         num4.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "4"
             }
             else{
@@ -70,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
         num5.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "5"
             }
             else{
@@ -82,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         num6.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "6"
             }
             else{
@@ -94,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
         num7.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "7"
             }
             else{
@@ -106,7 +111,7 @@ class MainActivity : AppCompatActivity() {
 
         num8.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "8"
             }
             else{
@@ -118,7 +123,7 @@ class MainActivity : AppCompatActivity() {
 
         num9.setOnClickListener {
 
-            if (result_text == ""){
+            if (result_text == "0"){
                 result_text = "9"
             }
             else{
@@ -130,7 +135,7 @@ class MainActivity : AppCompatActivity() {
 
         func_c.setOnClickListener {
 
-            result_text = ""
+            result_text = "0"
             result.text = result_text
             a = 0.0
             b = 0.0
@@ -155,34 +160,59 @@ class MainActivity : AppCompatActivity() {
                 a = a/b
             }
             result.text = a.toString()
+            result_text == "0"
         }
 
         func_pls.setOnClickListener {
             b = result_text.toDouble()
-            a = a+b
+            if(c==0){
+                a=b
+            }
+            if(c==1){
+                b = result_text.toDouble()
+                a = a+b
+            }
+            if(c==2){
+                b = result_text.toDouble()
+                a = a-b
+            }
+            if(c==3){
+                b = result_text.toDouble()
+                a = a*b
+            }
+            if(c==4){
+                b = result_text.toDouble()
+                a = a/b
+            }
             c = 1
             result.text = a.toString()
-            result_text =""
+            result_text ="0"
         }
 
         func_min.setOnClickListener {
-            if(result_text == "")
-            {
-                result_text = "-"
-                result.text = result_text
+            b = result_text.toDouble()
+            if(c==0){
+                a=b
             }
-            else{
+            if(c==1){
                 b = result_text.toDouble()
-                if(c==0){
-                    a=b
-                }
-                else{
-                    a = a-b
-                }
+                a = a+b
+            }
+            if(c==2){
+                b = result_text.toDouble()
+                a = a-b
+            }
+            if(c==3){
+                b = result_text.toDouble()
+                a = a*b
+            }
+            if(c==4){
+                b = result_text.toDouble()
+                a = a/b
+            }
                 c = 2
                 result.text = a.toString()
-                result_text=""
-            }
+                result_text="0"
         }
 
         func_mul.setOnClickListener {
@@ -190,12 +220,25 @@ class MainActivity : AppCompatActivity() {
             if(c==0){
                 a=b
             }
-            else{
+            if(c==1){
+                b = result_text.toDouble()
+                a = a+b
+            }
+            if(c==2){
+                b = result_text.toDouble()
+                a = a-b
+            }
+            if(c==3){
+                b = result_text.toDouble()
                 a = a*b
+            }
+            if(c==4){
+                b = result_text.toDouble()
+                a = a/b
             }
             c = 3
             result.text = a.toString()
-            result_text=""
+            result_text="0"
         }
 
         func_div.setOnClickListener {
@@ -203,12 +246,25 @@ class MainActivity : AppCompatActivity() {
             if(c==0){
                 a=b
             }
-            else{
+            if(c==1){
+                b = result_text.toDouble()
+                a = a+b
+            }
+            if(c==2){
+                b = result_text.toDouble()
+                a = a-b
+            }
+            if(c==3){
+                b = result_text.toDouble()
+                a = a*b
+            }
+            if(c==4){
+                b = result_text.toDouble()
                 a = a/b
             }
             c = 4
             result.text = a.toString()
-            result_text=""
+            result_text="0"
         }
     }
 }
