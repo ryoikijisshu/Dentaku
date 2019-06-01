@@ -6,8 +6,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var numA: Int=0
-    var numB: Int=0
+    var numA: Double=0.0
+    var numB: Double=0.0
     var mathSymbol: String=""
     var result_text: String = ""
 
@@ -86,8 +86,9 @@ class MainActivity : AppCompatActivity() {
 
         func_c.setOnClickListener {
 
-            numA=0
-            numB=0
+            numA=0.0
+            numB=0.0
+            mathSymbol=""
             result_text = ""
             result.text =result_text
 
@@ -96,80 +97,100 @@ class MainActivity : AppCompatActivity() {
         func_eq.setOnClickListener {
 
             inputNum(result_text)
+            determine()
+            mathSymbol=""
 
-            when(mathSymbol){
-                "+" -> {
-                    result_text=(numA+numB).toString()
-                    numA=numA+numB
-                    numB=0
-                    System.out.println()
-                }
-
-                "-" -> {
-                    result_text=(numA-numB).toString()
-                    numA=numA-numB
-                    numB=0
-                }
-
-                "*" -> {
-                    result_text=(numA*numB).toString()
-                    numA=numA*numB
-                    numB=0
-                }
-
-                "/" -> {
-                    result_text=(numA/numB).toString()
-                    numA=numA/numB
-                    numB=0
-                }
-
-                else ->{
-                    result_text="err"
-                }
-            }
-
-            result.text =result_text
         }
 
         func_pls.setOnClickListener {
 
             inputNum(result_text)
-            mathSymbol="+"
-            result.text ="+"
+            if(mathSymbol!=""){
+                determine()
+            }
+            result_text+="+"
+            result.text = result_text
+            mathSymbol = "+"
             result_text = ""
         }
 
         func_min.setOnClickListener {
 
             inputNum(result_text)
-            mathSymbol="-"
-            result.text ="-"
+            if(mathSymbol!=""){
+                determine()
+            }
+            result_text+="-"
+            result.text = result_text
+            mathSymbol = "-"
             result_text = ""
         }
 
         func_mul.setOnClickListener {
 
             inputNum(result_text)
-            mathSymbol="*"
-            result.text ="*"
+            if(mathSymbol!=""){
+                determine()
+            }
+            result_text+="*"
+            result.text = result_text
+            mathSymbol = "*"
             result_text = ""
         }
 
         func_div.setOnClickListener {
 
             inputNum(result_text)
-            mathSymbol="/"
-            result.text ="/"
+            if(mathSymbol!=""){
+                determine()
+            }
+            result_text+="/"
+            result.text = result_text
+            mathSymbol = "/"
             result_text = ""
         }
 
     }
 
     fun inputNum(text: String){
-        if(numA==0){
-            numA=text.toInt()
+        if(numA==0.0){
+            numA=text.toDouble()
         }else {
-            numB = text.toInt()
+            numB = text.toDouble()
         }
+    }
+
+    fun determine(){
+        when(mathSymbol){
+            "+" -> {
+                result_text=(numA+numB).toString()
+                numA=numA+numB
+                numB=0.0
+            }
+
+            "-" -> {
+                result_text=(numA-numB).toString()
+                numA=numA-numB
+                numB=0.0
+            }
+
+            "*" -> {
+                result_text=(numA*numB).toString()
+                numA=numA*numB
+                numB=0.0
+            }
+
+            "/" -> {
+                result_text=(numA/numB).toString()
+                numA=numA/numB
+                numB=0.0
+            }
+
+            else ->{
+                result_text="err"
+            }
+        }
+
+        result.text =result_text
     }
 }
