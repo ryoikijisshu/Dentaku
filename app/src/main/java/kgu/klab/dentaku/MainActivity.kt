@@ -6,13 +6,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var result_text: String = "" //テキスト表示用
-    var number1: String = "" //△+◇の△部分
-    var number2: String = "" //△+◇の◇部分
-    var func = 0 //四則演算判断用
-
+    var result_text = "" //テキスト表示用
+    var number1 = "" //△+◇の△部分
+    var number2 = "" //△+◇の◇部分
+    var func = 0
+    var func_tmp = 0
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -21,16 +23,17 @@ class MainActivity : AppCompatActivity() {
             result_text += "0"
             result.text = result_text
 
-            if(func == 0){//演算記号まだ＆1つ目の数字
+            if(count == 0){
 
                 number1 += "0"
 
             }
-            else if(func != 0){//演算記号入力＆2つ目の数字
+            else{
 
                 number2 += "0"
 
             }
+
         }
 
         num1.setOnClickListener {
@@ -38,12 +41,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "1"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "1"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "1"
 
@@ -56,12 +59,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "2"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "2"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "2"
 
@@ -74,12 +77,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "3"
             result.text = result_text
 
-           if(func == 0){
+            if(count == 0){
 
                 number1 += "3"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "3"
 
@@ -92,12 +95,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "4"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "4"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "4"
 
@@ -111,12 +114,12 @@ class MainActivity : AppCompatActivity() {
             result.text = result_text
 
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "5"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "5"
 
@@ -129,12 +132,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "6"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "6"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "6"
 
@@ -147,12 +150,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "7"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "7"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "7"
 
@@ -165,12 +168,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "8"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "8"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "8"
 
@@ -183,12 +186,12 @@ class MainActivity : AppCompatActivity() {
             result_text += "9"
             result.text = result_text
 
-            if(func == 0){
+            if(count == 0){
 
                 number1 += "9"
 
             }
-            else if(func != 0){
+            else{
 
                 number2 += "9"
 
@@ -202,43 +205,26 @@ class MainActivity : AppCompatActivity() {
             result.text =result_text
             number1=""
             number2 =""
+            count = 0
             func = 0
+            func_tmp = 0
 
         }
 
         func_eq.setOnClickListener {
 
-            if(func == 1) {
+            func_tmp = func
 
-                result_text = (number1.toInt() + number2.toInt()).toString()
-                result.text = result_text
-                number1 = result_text
+            calculate()
 
-            }
-            else if (func == 2) {
+            result.text = number1
 
-                result_text = (number1.toInt() - number2.toInt()).toString()
-                result.text = result_text
-                number1 = result_text
-
-            }
-            else if (func == 3) {
-
-                result_text = (number1.toInt() * number2.toInt()).toString()
-                result.text = result_text
-                number1 = result_text
-
-            }
-            else if (func == 4) {
-
-                result_text = (number1.toInt() / number2.toInt()).toString()
-                result.text = result_text
-                number1 = result_text
-
-            }
-
+            number1 = ""
             number2 = ""
             func = 0
+            result_text =""
+            count = 0
+            func_tmp = 0
 
         }
 
@@ -247,7 +233,24 @@ class MainActivity : AppCompatActivity() {
 
             result_text += "+"
             result.text =result_text
+
+            if(func != 0){
+
+                func_tmp = func
+
+            }
+
             func = 1
+
+            count++
+
+            calculate()
+
+            if(count >= 2){
+
+                number2 =""
+
+            }
 
         }
 
@@ -255,7 +258,25 @@ class MainActivity : AppCompatActivity() {
 
             result_text += "-"
             result.text =result_text
+
+
+            if(func != 0){
+
+                func_tmp = func
+
+            }
+
             func = 2
+
+            count++
+
+            calculate()
+
+            if(count >= 2){
+
+                number2 =""
+
+            }
 
         }
 
@@ -263,7 +284,24 @@ class MainActivity : AppCompatActivity() {
 
             result_text += "*"
             result.text =result_text
+
+            if(func != 0){
+
+                func_tmp = func
+
+            }
+
             func = 3
+
+            count++
+
+            calculate()
+
+            if(count >= 2){
+
+                number2 =""
+
+            }
 
         }
 
@@ -271,8 +309,55 @@ class MainActivity : AppCompatActivity() {
 
             result_text += "/"
             result.text =result_text
+
+            if(func != 0){
+
+                func_tmp = func
+
+            }
+
             func = 4
 
+            count++
+
+            calculate()
+
+            if(count >= 2){
+
+                number2 =""
+
+            }
+
         }
+
+    }
+
+
+    fun calculate() {
+
+        if (number2 != "") {
+
+            if (func_tmp == 1) {
+
+                number1 = (number1.toInt() + number2.toInt()).toString()
+            }
+            else if (func_tmp == 2) {
+
+                number1 = (number1.toInt() - number2.toInt()).toString()
+
+            }
+            else if (func_tmp == 3) {
+
+                number1 = (number1.toInt() * number2.toInt()).toString()
+
+            }
+            else if (func_tmp == 4) {
+
+                number1 = (number1.toInt() / number2.toInt()).toString()
+            }
+            else { }
+
+        }
+
     }
 }
