@@ -26,102 +26,78 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         num0.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "0"
             result.text = result_text
         }
 
         num1.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "1"
             result.text = result_text
         }
 
         num2.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "2"
             result.text =result_text
         }
 
         num3.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "3"
             result.text =result_text
         }
 
         num4.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "4"
             result.text =result_text
         }
 
         num5.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "5"
             result.text =result_text
         }
 
         num6.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "6"
             result.text =result_text
         }
 
         num7.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "7"
             result.text =result_text
         }
 
         num8.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "8"
             result.text =result_text
         }
 
         num9.setOnClickListener {
-            if(key > 0){
-                del()
-                result_text = ""
-            }
+            if(key > 0) del()
             result_text += "9"
             result.text =result_text
         }
 
         func_c.setOnClickListener {
             del()
-            result_text = ""
             result.text =result_text
         }
 
         func_eq.setOnClickListener {
+            if(result_text == "") {
+                if(point[count-1] == 3 || point[count-1] ==4){
+                    result_text = "1"
+                }else{
+                    result_text ="0"
+                }
+            }
             num[count] = result_text.toInt()
             res = num[0]
             for (i in 0 until count) {
@@ -178,12 +154,12 @@ class MainActivity : AppCompatActivity() {
         count = 0
         res = 0
         key = 0
+        result_text = ""
     }
 
     fun push(){
-        if(key > 0){
-            key = 0
-        }
+        if(key > 0) key = 0
+        if(result_text == "") result_text = "0"
         num[count] = result_text.toInt()
         result_text = ""
         count++;
