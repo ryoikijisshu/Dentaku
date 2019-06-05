@@ -98,16 +98,18 @@ class MainActivity : AppCompatActivity() {
 
 //            result_text += "="
 //            result.text =result_text
-            numText2 = Calc(numText1,numText2,funcID)
+            numText2 = calc(numText1,numText2,funcID)
             funcID = 0
             result_text = numText2.toString()
             result.text =result_text
+            numText1 = 0
+            result_text = ""
         }
 
         func_pls.setOnClickListener {
 
             if(funcID != 0){
-                numText2 = Calc(numText1, numText2, funcID)
+                numText2 = calc(numText1, numText2, funcID)
                 result_text = numText2.toString()
                 result_text += "+"
                 result.text =result_text
@@ -126,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         func_min.setOnClickListener {
 
             if(funcID != 0){
-                numText2 = Calc(numText1, numText2, funcID)
+                numText2 = calc(numText1, numText2, funcID)
                 result_text = numText2.toString()
                 result_text += "-"
                 result.text =result_text
@@ -145,7 +147,7 @@ class MainActivity : AppCompatActivity() {
         func_mul.setOnClickListener {
 
             if(funcID != 0){
-                numText2 = Calc(numText1, numText2, funcID)
+                numText2 = calc(numText1, numText2, funcID)
                 result_text = numText2.toString()
                 result_text += "*"
                 result.text =result_text
@@ -164,7 +166,7 @@ class MainActivity : AppCompatActivity() {
         func_div.setOnClickListener {
 
             if(funcID != 0){
-                numText2 = Calc(numText1, numText2, funcID)
+                numText2 = calc(numText1, numText2, funcID)
                 result_text = numText2.toString()
                 result_text += "/"
                 result.text =result_text
@@ -181,12 +183,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun Calc(numText1: Int, numText2: Int, funcID: Int): Int {
+    fun calc(numText1: Int, numText2: Int, funcID: Int): Int {
         var CalcResult: Int = 0
         if(funcID == 1) CalcResult = numText2 + numText1
-        if(funcID == 2) CalcResult = numText2 - numText1
-        if(funcID == 3) CalcResult = numText2 * numText1
-        if(funcID == 4) CalcResult = numText2 / numText1
+        else if(funcID == 2) CalcResult = numText2 - numText1
+        else if(funcID == 3) CalcResult = numText2 * numText1
+        else if(funcID == 4) CalcResult = numText2 / numText1
         return CalcResult
     }
 }
