@@ -91,13 +91,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         func_eq.setOnClickListener {
-            if(result_text == "") {
-                if(point[count-1] == 3 || point[count-1] ==4){
-                    result_text = "1"
-                }else{
-                    result_text ="0"
-                }
-            }
+            if(result_text == "") result_text ="0"
+
             num[count] = result_text.toInt()
             res = num[0]
             for (i in 0 until count) {
